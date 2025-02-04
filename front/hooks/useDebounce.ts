@@ -9,7 +9,7 @@ export function useDebounce<T>(value: T, delay: number): T {
         }, delay);
 
         return () => {
-            clearTimeout(handler); // 🔥 Annule la dernière requête en cas de nouvelle saisie
+            clearTimeout(handler);
         };
     }, [value, delay]);
 

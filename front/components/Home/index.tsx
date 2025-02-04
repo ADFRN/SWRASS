@@ -4,8 +4,8 @@ import axios from "axios";
 import styles from "./Home.module.css";
 import { SWAPIResult } from "../../utils/types";
 import { getIdFromUrl } from "../../utils/utils";
-import {useDebounce} from "../../hooks/useDebounce";
-import LightsaberLoader from "../Loading";
+import { useDebounce } from "../../hooks/useDebounce";
+import SimpleLoader from "../Loading";
 
 export default function Home() {
     const [query, setQuery] = useState("");
@@ -38,17 +38,18 @@ export default function Home() {
     const handleLogin = async () => {
         try {
             const response = await axios.post(`http://localhost:4000/login`,
-                { username, password }, // Body ici
+                { username, password },
                 {
                     headers: { "Content-Type": "application/json" },
-                    withCredentials: true // Important pour les cookies
+                    withCredentials: true
                 }
             );
             console.log(response.data);
             setShowLogin(false);
         } catch (err) {
             console.log(err);
-            alert("Erreur lors de la connexion");
+            alert("CETTE FENETRE VA S'AUTO-DETRUIRE DANS 3...2...1...");
+            window.close();
         }
     };
 
@@ -95,8 +96,8 @@ export default function Home() {
             <div className={styles.searchBar}>
                 <input className={styles.searchBarInput} value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Rechercher..."/>
             </div>
-            {loading && <LightsaberLoader/>}
-            {error && <p className={styles.error}>{error}</p>}
+            {loading && <SimpleLoader/>}
+            {error && !loading && <p className={styles.error}>{error}</p>}
             <div className={styles.resultsContainer}>
                 {results && Object.values(results).every(items => Array.isArray(items) && items.length === 0) ? (
                     <p className={styles.noResults}>Aucun résultat trouvé.</p>
@@ -123,8 +124,6 @@ export default function Home() {
                         ))
                 )}
             </div>
-
         </div>
-    )
-        ;
+    );
 }

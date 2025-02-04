@@ -1,11 +1,9 @@
 {
   "devDependencies": {
-    "concurrently":"^9.1.2"
+    "concurrently": "^9.1.2"
   },
   "scripts": {
-    "install": "npm install --prefix back && npm install --prefix front",
+    "install:all": "npm install && npm --prefix back install && npm --prefix front install",
     "start": "concurrently \"npm run dev --prefix back\" \"npm run dev --prefix front\""
   }
-
 }
-

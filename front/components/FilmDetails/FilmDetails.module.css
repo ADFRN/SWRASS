@@ -1,42 +1,66 @@
 .card {
-    background: #1a1a1a;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    color: white;
-    max-width: 500px;
+    background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+    border: 2px solid #FFE81F;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 232, 31, 0.3);
+    color: #FFE81F;
+    display: flex;
+    flex-direction: column;
     margin: 20px auto;
-    text-align: center;
-    border: 1px solid #888;
+    max-width: 300px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.cardHeader {
-    background: #333;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.cardTitle {
-    font-size: 24px;
-    font-weight: bold;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 232, 31, 0.5);
 }
 
 .cardSubtitle {
-    font-size: 18px;
-    font-weight: normal;
-    color: #ddd;
+    text-align: center;
 }
 
-.cardContent p {
-    font-size: 16px;
-    margin: 8px 0;
+.cardImage {
+    background-color: #000;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
 }
 
-.openingCrawl {
-    font-style: italic;
-    font-size: 14px;
-    margin-top: 10px;
-    color: #bbb;
-    text-align: justify;
+.cardImage::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+}
+
+.cardContent {
+    padding: 1.5rem;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #FFE81F;
+}
+
+.cardText {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 232, 31, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.cardText strong {
+    color: #FFF;
+    text-shadow: 0 0 3px #FFE81F;
 }

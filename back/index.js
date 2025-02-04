@@ -27,25 +27,23 @@ const init = async () => {
         cookie: {
             name: 'authToken',
             password: 'supersecretpasswordpasswordpassword',
-            isSecure: false, // Mettre true en production avec HTTPS
-            ttl: 7 * 24 * 60 * 60 * 1000 // 7 jours
+            isSecure: false,
+            ttl: 7 * 24 * 60 * 60 * 1000
         },
         validate: async (request) => {
             try {
-                const token = request.state.authToken?.token; // 🔥 Extrait bien le token
-                console.log("🔍 Token extrait :", token);
+                const token = request.state.authToken?.token;
 
                 if (!token) {
-                    console.log("❌ Aucun token trouvé !");
+                    console.log("Aucun token trouvé");
                     return { isValid: false };
                 }
 
                 const decoded = jwt.verify(token, SECRET_KEY);
-                console.log("✅ Token décodé :", decoded);
 
                 return { isValid: true, credentials: decoded };
             } catch (error) {
-                console.log("❌ Erreur JWT :", error.message);
+                console.log(error.message);
                 return { isValid: false };
             }
         }
@@ -66,7 +64,6 @@ const init = async () => {
             }
 
             const token = jwt.sign({ user: 'Luke' }, SECRET_KEY, { expiresIn: '7d' });
-            console.log("✅ Token généré :", token);
             return h.response({ message: 'Connexion réussie' }).state('authToken', { token });
         }
     });
@@ -84,7 +81,7 @@ const init = async () => {
         path: '/me',
         options: { auth: false },
         handler: async (request, h) => {
-            console.log("Cookies reçus :", request.state); // 🔥 Vérifier ce que reçoit le serveur
+            console.log("Cookies reçus :", request.state);
             const token = request.state.authToken.token;
 
             if (!token) {
@@ -108,10 +105,6 @@ const init = async () => {
         path: '/search',
         options: { auth: 'jwt' },
         handler: async (request, h) => {
-            console.log("🔍 Cookies reçus sur /search :", request.state);
-            console.log("🔍 Authentification JWT credentials :", request.auth.credentials);
-
-
             const { query } = request.query;
             if (!query) {
                 return h.response({ error: 'Missing search query' }).code(400);

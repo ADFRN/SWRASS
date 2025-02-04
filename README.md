@@ -1,7 +1,18 @@
 # Star Wars Rebels Alliance Search System
 
+## Installation
 
-## Conclusion
-Toute l'alliance Rebelle compte sur la réussite de cette mission.
+```bash
+npm run install:all
+```
 
-![May the force be with you](https://media.giphy.com/media/JDnaQ8qn0Myuk/200.gif)
+## Démarrage
+
+```bash
+npm run start
+```
+
+Deux commandes et c'est parti, le front et le back devrait se lancer. 
+
+
+![Nice](https://media4.giphy.com/media/yJFeycRK2DB4c/giphy.gif)
