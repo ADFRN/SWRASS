@@ -8,7 +8,7 @@ import VehicleDetails from "../../../../components/VehicleDetails";
 import { SWAPIResult } from "../../../../utils/types";
 
 export default async function Page({ params }: { params: { category: string, id: string } }) {
-    const { category, id } = params;
+    const { category, id } = await params;
 
     try {
         const response = await axios.get(`https://swapi.dev/api/${category}/${id}`);
