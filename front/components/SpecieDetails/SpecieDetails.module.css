@@ -1,0 +1,28 @@
+.card {
+    background: #242424;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    border: 1px solid #555;
+}
+
+.cardHeader {
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.cardTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cardContent p {
+    font-size: 16px;
+    margin: 8px 0;
+}

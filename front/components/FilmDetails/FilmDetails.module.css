@@ -1,0 +1,42 @@
+.card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    border: 1px solid #888;
+}
+
+.cardHeader {
+    background: #333;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.cardTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cardSubtitle {
+    font-size: 18px;
+    font-weight: normal;
+    color: #ddd;
+}
+
+.cardContent p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.openingCrawl {
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #bbb;
+    text-align: justify;
+}

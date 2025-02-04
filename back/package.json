@@ -1,0 +1,20 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@hapi/cookie": "^12.0.1",
+    "@hapi/hapi": "^21.3.12",
+    "axios": "^1.7.9",
+    "hapi-cors": "^1.0.3",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
